@@ -1,6 +1,7 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:zero_waste/constants/constant.dart';
+import 'package:zero_waste/screens/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -51,19 +52,34 @@ class LoginScreen extends StatelessWidget {
                 height: 52,
                 constraints: const BoxConstraints(maxWidth: 400),
                 child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(minimumSize: Size.infinite),
-                  child: const Text("Sign in", style: TextStyle(fontSize: 20)),
+                  onPressed: () {
+                    //User Signin
+                  },
+                  style: elevatedButtonStyleTwo,
+                  child: const Text("Sign in"),
                 ),
               ),
               const SizedBox(height: 16),
               Wrap(
                 children: [
-                  const Text("Don't have an Account? ",
-                      style: TextStyle(fontSize: 16)),
+                  Text(
+                    "Don't have an Account? ",
+                    style: textStyleTwo,
+                  ),
                   GestureDetector(
-                      child: Text("Sign up",
-                          style: TextStyle(fontSize: 16, color: colorGreen)))
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUp(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Sign up",
+                      style: textStyleThree,
+                    ),
+                  )
                 ],
               ),
               const SizedBox(height: 13),
@@ -73,11 +89,16 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Expanded(child: Divider(thickness: 1, color: lineColor)),
                     const SizedBox(width: 15),
-                    const Text("OR"),
+                    Text("OR", style: textStyleOne),
                     const SizedBox(width: 15),
                     Expanded(child: Divider(thickness: 1, color: lineColor)),
                   ],
                 ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Login using Social Networks',
+                style: textStyleTwo,
               ),
               const SizedBox(height: 20),
               Wrap(
